@@ -1,0 +1,589 @@
+
+
+Q1. Write a code for Inheritance in Dart
+
+class Vehicle {
+ void fuel() {
+ print("Vehicles need fuel to run");
+ }
+}
+class Car extends Vehicle {
+ void drive() {
+ print("Car is being driven");
+ }
+}
+class ElectricCar extends Car {
+ void charge() {
+ print("Electric Car is charging");
+ }
+}
+abstract class OffRoad {
+ void offRoadMode();
+}
+class Jeep extends Vehicle implements OffRoad {
+ void fourWheelDrive() {
+ print("Jeep has 4WD mode");
+ }
+ @override
+ void offRoadMode() {
+ print("Jeep is driving off-road!");
+ }
+}
+void main() {
+ print("Irfan 09");
+ Car c = Car();
+ c.fuel();
+ c.drive();
+ ElectricCar ec = ElectricCar();
+ ec.fuel();
+ ec.drive();
+ ec.charge();
+ Jeep j = Jeep();
+ j.fuel();
+ j.fourWheelDrive();
+ j.offRoadMode();
+}
+
+
+
+
+Q2. Write a code to perform different types of conditional statements in dart 
+
+A: If else
+void main() {
+ print("Irfan 09");
+ int age = 19;
+ print("Entered age is: $age");
+ if (age < 0) {
+ print("Age should be in positive number");
+ } else if (age < 18) {
+ print("You are child");
+ } else {
+ if (age <= 60) {
+ print("You are adult");
+ } else if (age < 120) {
+ print("You are senior citizen");
+ } else {
+ print("Age should be max till 120");
+ }
+ }
+}
+
+B: Switch
+
+void main() {
+ String stream = "CS";
+ String className = "BCA";
+ print("Irfan 09");
+ 
+ switch (stream) {
+ case "CS":
+ {
+ switch (className) {
+ case "BCA":
+ {
+ print("Stream selected is BCA");
+ }
+ break;
+ default:
+ {
+ print("Class not found in CS stream");
+ }
+ }
+ }
+ break;
+ case "IT":
+ {
+ print("You have selected IT department");
+ }
+ break;
+ default:
+ {
+ print("Please select proper stream");
+ }
+ }
+}
+
+
+
+
+Q3. Write a code to perform different types of looping statements in dart
+
+A: For loop
+void main() {
+ print("Irfan 09");
+ int num = 5;
+ int result;
+ for (int i = 1; i <= 10; i++) {
+ result = num * i;
+ print("$num * $i = $result");
+ }
+}
+
+B: For in loop
+void main() {
+ print("Irfan 09");
+ var data = [1, 2, 3, 4];
+ for (int i in data) {
+ print(i);
+ }
+}
+
+C: For each Loop
+void main() {
+ print("Irfan 09");
+ var data = [1, 2, 3, 4, 5];
+ data.forEach((num) => print(num));
+}
+
+D: While Loop
+void main() {
+ print("Irfan 09");
+ int num = 5;
+ int i = 1;
+ int result;
+ print("Using While Loop");
+ while (i <= 10) {
+ result = num * i;
+ print("$num * $i = $result");
+ i++;
+ }
+}
+
+E: Do while loop
+void main() {
+ print("Irfan 09");
+ int num = 5;
+ int i = 1;
+ int result;
+ print("Using Do-While Loop");
+ do {
+ result = num * i;
+ print("$num * $i = $result");
+ i++;
+ } while (i <= 10);
+}
+
+
+
+
+Q4. How to create a button in Flutter and also show its on click action listener 
+import 'package:flutter/material.dart'; void main(){ 
+runApp(myApp()); 
+} 
+class myApp extends StatelessWidget{ myApp({super.key}); 
+Widget build(BuildContext context){ 
+return MaterialApp( 
+title: 'Practical1', home: myHomePage(), ); 
+} 
+} 
+class myHomePage extends StatefulWidget{ 
+State<myHomePage> createState() => _myHomePage(); 
+} 
+class _myHomePage extends State<myHomePage>{ 
+Widget build(BuildContext context){ 
+return Scaffold( appBar: AppBar(title: Text("SYBSC-23"),), body: Center( child: 
+Column( mainAxisAlignment:MainAxisAlignment.center, children: [ 
+Text("Irfan"), ElevatedButton( onPressed: (){}, child: Text("click here") 
+) 
+], ), ), );
+
+
+
+
+
+Q5. How to go from one page to another in Flutter 
+import 'dart:async'; 
+import 'package:flutter/material.dart'; 
+import 'second.dart'; void main(){ 
+runApp(myApp()); 
+} 
+class myApp extends StatelessWidget{ myApp({super.key}); 
+Widget build(BuildContext context){ 
+return MaterialApp( 
+title: 'Practical1', home: myHomePage(), ); 
+} 
+} 
+class myHomePage extends StatefulWidget{ 
+State<myHomePage> createState() => _myHomePage(); 
+} 
+class _myHomePage extends State<myHomePage>{ 
+@override void initState() { 
+// TODO: implement initState 
+super.initState(); 
+Timer( 
+Duration(seconds:2), (){ 
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>secondPage())); 
+} 
+); 
+} 
+Widget build(BuildContext context){ 
+return Scaffold( appBar: AppBar(title: Text("SYBSC-23"),), body: Center( child: 
+Column( mainAxisAlignment:MainAxisAlignment.center, children: [ 
+Text("Samina"), ElevatedButton( onPressed: (){ 
+//Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>secondPage())); 
+}, child: Text("click here") 
+) 
+], ), ), ); 
+} 
+} 
+Second:- 
+import 'package:flutter/material.dart'; class secondPage extends StatelessWidget{ 
+secondPage({super.key}); 
+Widget build(BuildContext context){ 
+return Scaffold( appBar: AppBar(title: Text("Second-Page"),), body: Text("We are on the Second 
+Page"), );
+
+
+
+
+
+
+Q8. Perform codes of MongoDB using VS Code. 
+const mongoose = require("mongoose");
+const uri = "mongodb://localhost:27017/irfan";
+mongoose.connect(uri)
+ .then(() => console.log("Database Connected Successfully"))
+ .catch(error => console.log("Error ", error));
+const schema = new mongoose.Schema({ // Fixed schema declaration
+ lastname: String,
+ password: String,
+ username: String
+});
+const Model = mongoose.model("demo", schema); // Corrected model declaration
+Model.find({})
+ .exec()
+ .then((employees) => {
+ employees.forEach(employeeRecord => console.log(employeeRecord));
+ })
+ .catch((error) => {
+ console.log("Error Occurred: ", error);
+ });
+Insert:
+Model.collection.insertOne( 
+{'lastname':'Patil','password':'admin1234','username':'shraddha'} 
+).then(function(){ 
+console.log("Data Inserted") 
+}).catch(function(error){ 
+console.log("Error ",error) 
+});
+
+
+
+
+
+Q9. Write a program to demonstrate the use of HTTP Listeners in Node JS 
+let http = require("http") 
+let fs = require("fs") 
+let dir = "./public/" 
+let port = 4000 
+http.createServer(function(request,response){ 
+if(request.url === '/'){ 
+render(response,'homepage.html') 
+} 
+else if(request.url === "/about") 
+{ 
+render(response,'aboutus.html') 
+} 
+else if(request.url === "/contact") 
+{ 
+render(response,'contactus.html') 
+} 
+}).listen(4000,function(){ 
+console.log(`http://localhost:${port}`) 
+}); 
+let render = function(response,file) 
+{ 
+console.log(dir+file) 
+fs.readFile(dir+file,function(error,data){ 
+if(error) 
+{ 
+response.writeHead(404,{'Content-type':'text/html'}) 
+response.write('<h1>404 Error File Not Found</h1>') 
+} 
+if(data) 
+{ 
+response.writeHead(200,{'Content-type':'text/html'}) 
+return response.end(data) 
+} 
+}) 
+} 
+Homepage:- <!DOCTYPE html> 
+<html> 
+<head> 
+<title>Home</title> 
+</head> 
+<body> 
+<h1>Welcome to Our Website</h1> 
+<p>This is the homepage.</p> 
+<a href="./aboutus.html">About Us</a> | <a href="./contactus.html">Contact Us</a> 
+</body> 
+</html> About us Page:- <!DOCTYPE html> 
+<html> 
+<head> 
+<title>About Us</title> 
+</head> 
+<body> 
+<h1>About Us</h1> 
+<p>Welcome to our website! We are dedicated to providing the best service.</p> 
+<a href="./homepage.html">Go Back to Home</a> 
+</body></html> 
+Contact us page:- <!DOCTYPE html> 
+<html> 
+<head> 
+<title>Contact Us</title> 
+</head> 
+<body> 
+<h1>Contact Us</h1> 
+<p>Email: example@example.com</p> 
+<p>Phone: +123 456 7890</p> 
+<a href="./homepage.html">Go Back to Home</a> 
+</body> 
+</html>
+
+
+
+
+Q10. Demonstrate the creation of modules and exports in Node JS 
+console.log(__dirname) 
+console.log(__filename) 
+let city=['pune','mumbai','nagpur','nashik'] 
+let number=[12,23,85,65,41] 
+exports.city=city 
+module.exports.number=number 
+module.exports.color=['pink','purple','blue','yellow'] 
+console.log(module)
+MAIN
+console.log("Cities:", data.city);
+console.log("Numbers:", data.number);
+console.log("Colors:", data.color);
+
+
+
+
+Q11. Write a code for responding to multiple ports in Node JS
+let http = require ('http') 
+let server = http.createServer(function(request,response) 
+{ 
+response.writeHead(200,{'Content-type':'text/html'}) 
+response.write('<h1>Welcome to server 1</h1>') 
+response.end() 
+}).listen(3000,function() 
+{ 
+console.log('http://localhost:3000') 
+}) 
+let server2 = http.createServer(function(request,response) 
+{ 
+response.writeHead(200,{'Content-type':'text/html'}) 
+response.write('<h1>Welcome to server 2</h1>') 
+response.end() 
+}).listen(4000,function() 
+{ 
+console.log('http://localhost:4000') 
+})
+
+
+
+
+Q12. Write a program to demonstrate the use of Listener in Express JS 
+let http = require("http") 
+let server = http.createServer(function(request,response){ 
+response.writeHead(200,{'Content-type':'text/html'}) 
+if(request.method=="GET") 
+{ 
+response.end("GET") 
+} 
+if(request.method=="POST") 
+{ 
+response.write("Post method Called") 
+response.end("POST") 
+} 
+if(request.method=="PUT") 
+{ 
+response.end("PUT") 
+} 
+if(request.method=="DELETE") 
+{ 
+response.end("DELETE") 
+} 
+}).listen(3000,function(){console.log("http://localhost:3000")});
+
+
+
+
+
+Q13. Write a code for Pug example in Express JS 
+Code:- var express = require("express") 
+var app = express(); 
+app.set("view engine","pug") 
+app.set('views','./views'); 
+app.get("/",function(request,response){ 
+response.render("index"); 
+}); 
+app.get("/home",function(request,response){ 
+response.render("home",{ 
+name:"Burhani College", 
+data:"Welcome to Burhani College" 
+}); 
+}); 
+var server = app.listen(5000,function(){ 
+console.log("http://localhost:5000") 
+}); 
+HOME PUG: 
+html 
+head 
+title=name 
+body 
+h1=data 
+INDEX.PUG: 
+doctype html 
+html 
+head 
+title "Hello Pug" 
+body 
+p.greetings#people Hello World!
+
+
+
+
+
+Q14. Write a program to one-way binding and two-way binding in 
+Angular JS 
+Code:- One-way Binding 
+<!DOCTYPE html>
+<head>
+<title>Angular JS</title>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('burhani',[]);
+</script>
+</head>
+<body ng-app="burhani">
+<input type="text" name="username" id="username" ng-model="uname"><br/>
+<h1>Welcome ,{{uname}}</h1>
+</body>
+</html>
+
+Two-way Binding 
+Two-way Binding
+<!DOCTYPE html>
+<head>
+<title>Angular JS</title>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('burhani',[]);
+app.controller("form1",function($scope){
+$scope.uname="Burhani College";
+});
+</script>
+</head>
+<body ng-app="burhani">
+<div ng-controller="form1">
+<input type="text" name="username" id="username" ngmodel="uname"><br/>
+<h1>Welcome ,{{uname}}</h1>
+<h1>{{uname}}</h1>
+</div>
+</body>
+</html>
+
+
+
+
+
+Q15. Write a program for ng-if and ng-switch in Angular JS 
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>AngularJS ng-if and ng-switch</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></
+script>
+</head>
+<body ng-controller="myController">
+ <h2>Example of ng-if</h2>
+ <label>Enter Age: </label>
+ <input type="number" ng-model="age">
+ <p ng-if="age < 18">You are a Minor.</p>
+ <p ng-if="age >= 18">You are an Adult.</p>
+ <h2>Example of ng-switch</h2>
+ <label>Select a Color: </label>
+ <select ng-model="selectedColor">
+ <option value="">Select</option>
+ <option value="red">Red</option>
+ <option value="green">Green</option>
+ <option value="blue">Blue</option>
+ </select>
+ <div ng-switch="selectedColor">
+ <p ng-switch-when="red" style="color: red;">You selected Red!</p>
+ <p ng-switch-when="green" style="color: green;">You selected Green!</p>
+ <p ng-switch-when="blue" style="color: blue;">You selected Blue!</p>
+ <p ng-switch-default>Please select a color.</p>
+ </div>
+ <script>
+ var app = angular.module("myApp", []);
+ app.controller("myController", function ($scope) {
+ $scope.age = "";
+ $scope.selectedColor = "";
+ });
+ </script>
+</body>
+</html>
+
+
+
+Q16. Write a program to demonstrate ng-for loop in Angular JS 
+<!DOCTYPE html> 
+<head> 
+<title>Angular JS</title> 
+<script src="angular.min.js"></script> 
+<script type="text/javascript"> 
+var app = angular.module('burhani', []); 
+app.controller("form1",function($scope){ 
+$scope.uname = "Burhani College @ Mazagaon"; 
+}); 
+</script> 
+</head> 
+<body ng-app="burhani" ng-controller="form1"> 
+<div > 
+<input type="text" name="username" id="username" ng-model="uname"><br /> 
+<input type="text" name="password" id="password" ng-model="password"><br /> 
+<h1>Welcome, {{uname}}</h1><br /> 
+<h1>{{uname}}</h1> 
+</div> 
+<div ng-init="employees=['Anamika','Shreya','Jemima']"> 
+<ul> 
+<li ng-repeat="name in employees"> 
+{{name}} 
+</li> 
+</ul> 
+</div> 
+<div ng-if="uname == 'admin'"> 
+<div ng-if="password=='password'"> 
+<h2>Welcome, Admin</h2> 
+</div> 
+</div> 
+<div ng-switch="uname"> 
+<div ng-switch-when="admin"> 
+<div ng-switch="password"> 
+<div ng-switch-when="password"> 
+Welcome, Switch Case 
+</div> 
+<div ng-switch-default> 
+<h3>Invalid Data</h3> 
+</div> 
+</div> 
+</div> 
+<div ng-switch-when="irfan"> 
+<div ng-switch="password"> 
+<div ng-switch-when="irfan"> 
+Welcome, irfan
+</div> 
+</div> 
+</div> 
+<div ng-switch-default> 
+<h3>Please enter proper login details</h3> 
+</div> 
+</div> 
+</body> 
+</html>
