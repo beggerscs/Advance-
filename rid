@@ -1,0 +1,456 @@
+
+
+1. Write a simple and small code for Inheritance in Dart                                               
+
+// Base class (superclass)
+class Animal {
+  void sound() {
+    print("Some sound");
+  }
+}
+
+// Derived class (subclass)
+class Dog extends Animal {
+  @override
+  void sound() {
+    print("Bark");
+  }
+}
+
+void main() {
+  var dog = Dog();
+  dog.sound();  // Output: Bark
+}
+
+
+2.Different Types of Conditional Statements in Dart
+
+void main() {
+  int num = 10;
+
+  // if-else statement
+  if (num > 0) {
+    print("Positive number");
+  } else {
+    print("Non-positive number");
+  }
+
+  // switch-case statement
+  switch (num) {
+    case 10:
+      print("Number is 10");
+      break;
+    default:
+      print("Number is not 10");
+  }
+
+
+
+
+3. Different Types of Looping Statements in Dart
+
+void main() {
+  print("Jack 77");
+  // for loop
+  print("for loop");
+  for (int i = 1; i <= 3; i++) {
+  print(i);
+  }
+ print("while loop");
+  int i = 1;
+  while (i <= 3) {
+    print(i);
+    i++;
+  }
+print("do-while loop");
+  int j = 1;
+  do {
+    print(j);
+    j++;
+  } while (j <= 3);
+}
+
+
+
+4. How to Create a Button in Flutter and Show its OnClick Action Listener
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Button Click Example")),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              print("Button Clicked!");
+            },
+            child: Text("Click Me"),
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
+5. How to Go from One Page to Another in Flutter
+
+import 'package:flutter/material.dart';
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Home Page")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondPage()),
+            );
+          },
+          child: Text("Go to Second Page"),
+        ),
+      ),
+    );
+  }
+}
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Second Page")),
+      body: Center(child: Text("You are on the second page")),
+    );
+  }
+}
+
+
+
+Q.6 And Q.7 Not there
+
+
+8. Perform MongoDB Operations Using VS Code
+
+// Example to use MongoDB in VS Code
+const { MongoClient } = require('mongodb');
+const uri = "mongodb://localhost:27017";
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+    const database = client.db("mydb");
+    const collection = database.collection("users");
+    const result = await collection.find().toArray();
+    console.log(result);
+  } finally {
+    await client.close();
+  }
+}
+run().catch(console.error);
+
+
+
+9. HTTP Listener in Node.js
+
+const http = require('http');
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello, World!\n');
+});
+
+server.listen(3000, '127.0.0.1', () => {
+  console.log('Server is running on port 3000');
+});
+
+
+
+
+10. Creation of Modules and Exports in Node.js
+
+console.log(__dirname) 
+console.log(__filename) 
+let city=['pune','mumbai','nagpur','nashik'] 
+let number=[12,23,85,65,41] 
+exports.city=city 
+module.exports.number=number 
+module.exports.color=['pink','purple','blue','yellow'] 
+console.log(module)
+
+
+
+MAIN
+
+console.log("Cities:", data.city);
+console.log("Numbers:", data.number);
+console.log("Colors:", data.color);
+
+
+
+11. Responding to Multiple Ports in Node.js
+
+const http = require('http');
+const server1 = http.createServer((req, res) => {
+  res.end('Server 1');
+});
+const server2 = http.createServer((req, res) => {
+  res.end('Server 2');
+});
+server1.listen(3000, () => {
+  console.log('Server 1 running on port 3000');
+});
+
+server2.listen(4000, () => {
+  console.log('Server 2 running on port 4000');
+});
+
+
+
+12. Listener in Express.js
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+app.listen(3000, () => {
+  console.log('Express server running on port 3000');
+});
+
+
+
+13. Pug Example in Express.js
+
+Install pug:
+npm install pug
+app.js:
+const express = require('express');
+const app = express();
+
+app.set('view engine', 'pug');
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Pug Example', message: 'Hello from Pug!' });
+});
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+views/index.pug:
+html
+  head
+    title= title
+  body
+    h1= message
+
+
+
+
+14. One-Way and Two-Way Binding in AngularJS
+
+Code:- One-way Binding 
+<!DOCTYPE html>
+<head>
+<title>Angular JS</title>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('burhani',[]);
+</script>
+</head>
+<body ng-app="burhani">
+<input type="text" name="username" id="username" ng-model="uname"><br/>
+<h1>Welcome ,{{uname}}</h1>
+</body>
+</html>
+
+
+
+
+Two-way Binding 
+
+Two-way Binding
+<!DOCTYPE html>
+<head>
+<title>Angular JS</title>
+<script src="angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('burhani',[]);
+app.controller("form1",function($scope){
+$scope.uname="Burhani College";
+});
+</script>
+</head>
+<body ng-app="burhani">
+<div ng-controller="form1">
+<input type="text" name="username" id="username" ng-model="uname"><br/>
+<h1>Welcome ,{{uname}}</h1>
+<h1>{{uname}}</h1>
+</div>
+</body>
+</html>
+
+
+
+
+15. ng-if and ng-switch in AngularJS
+
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS ng-if and ng-switch</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myController">
+
+    <h2>Example of ng-if</h2>
+    <label>Enter Age: </label>
+    <input type="number" ng-model="age">
+    <p ng-if="age < 18">You are a Minor.</p>
+    <p ng-if="age >= 18">You are an Adult.</p>
+
+    <h2>Example of ng-switch</h2>
+    <label>Select a Color: </label>
+    <select ng-model="selectedColor">
+        <option value="">Select</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select>
+
+    <div ng-switch="selectedColor">
+        <p ng-switch-when="red" style="color: red;">You selected Red!</p>
+        <p ng-switch-when="green" style="color: green;">You selected Green!</p>
+        <p ng-switch-when="blue" style="color: blue;">You selected Blue!</p>
+        <p ng-switch-default>Please select a color.</p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myController", function ($scope) {
+            $scope.age = "";
+            $scope.selectedColor = "";
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+16. ng-for Loop in AngularJS
+
+<!DOCTYPE html> 
+<head> 
+<title>Angular JS</title> 
+<script src="angular.min.js"></script> 
+<script type="text/javascript"> 
+var app = angular.module('burhani', []); 
+app.controller("form1",function($scope){ 
+$scope.uname = "Burhani College @ Mazagaon"; 
+}); 
+</script> 
+</head> 
+<body ng-app="burhani" ng-controller="form1"> 
+<div > 
+<input type="text" name="username" id="username" ng-model="uname"><br /> 
+<input type="text" name="password" id="password" ng-model="password"><br /> 
+<h1>Welcome, {{uname}}</h1><br /> 
+<h1>{{uname}}</h1> 
+</div> 
+<div ng-init="employees=['Anamika','Shreya','Jemima']"> 
+<ul> 
+<li ng-repeat="name in employees"> 
+{{name}} 
+</li> 
+</ul> 
+</div> 
+<div ng-if="uname == 'admin'"> 
+<div ng-if="password=='password'"> 
+<h2>Welcome, Admin</h2> 
+</div> 
+</div> 
+<div ng-switch="uname"> 
+<div ng-switch-when="admin"> 
+<div ng-switch="password"> 
+<div ng-switch-when="password"> 
+Welcome, Switch Case 
+</div> 
+<div ng-switch-default> 
+<h3>Invalid Data</h3> 
+</div> 
+</div> 
+</div> 
+<div ng-switch-when="admin"> 
+<div ng-switch="password"> 
+<div ng-switch-when="admin"> 
+Welcome, admin
+</div> 
+</div> 
+</div> 
+<div ng-switch-default> 
+<h3>Please enter proper login details</h3> 
+</div> 
+</div> 
+</body> 
+</html>
+
+Q1. Write a code for Inheritance in Dart
+class Vehicle {
+ void fuel() {
+ print("Vehicles need fuel to run");
+ }
+}
+class Car extends Vehicle {
+ void drive() {
+ print("Car is being driven");
+ }
+}
+class ElectricCar extends Car {
+ void charge() {
+ print("Electric Car is charging");
+ }
+}
+abstract class OffRoad {
+ void offRoadMode();
+}
+class Jeep extends Vehicle implements OffRoad {
+ void fourWheelDrive() {
+ print("Jeep has 4WD mode");
+ }
+ @override
+ void offRoadMode() {
+ print("Jeep is driving off-road!");
+ }
+}
+void main() {
+ print("Irfan 09");
+ Car c = Car();
+ c.fuel();
+ c.drive();
+ ElectricCar ec = ElectricCar();
+ ec.fuel();
+ ec.drive();
+ ec.charge();
+ Jeep j = Jeep();
+ j.fuel();
+ j.fourWheelDrive();
+ j.offRoadMode();
+}
